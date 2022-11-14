@@ -11,7 +11,6 @@ from typing import cast
 
 def require_at_least(
     minor: int,
-) -> Callable[[Callable[..., None]], Callable[..., None]]:
     """Require the minimum minor version of Python 3 to run the test.
 
     Args:
@@ -63,9 +62,7 @@ def ast_equal(observed: ast.AST, expected: ast.AST) -> bool:
     This function checks if `ovserved` contains at least the same subtree with
     `expected`. If `ovserved` has some extra branches that `expected` does not cover,
     it is ignored.
-
-    Args:
-        observed: An AST to check.
+    observed: An AST to check.
         expected: The expected AST.
 
     Returns:
@@ -111,7 +108,6 @@ def assert_ast_equal(observed: ast.AST, expected: ast.AST) -> None:
             observed, expected
         ), f"""\
 AST does not match.
-observed={ast.dump(observed, indent=4)}
 expected={ast.dump(expected, indent=4)}
 """
     else:
